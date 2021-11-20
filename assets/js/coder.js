@@ -33,6 +33,11 @@ function setTheme(theme) {
     let inverse = theme === 'dark' ? 'light' : 'dark';
     body.classList.remove('colorscheme-' + inverse);
     body.classList.add('colorscheme-' + theme);
+
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+        iframe.src = iframe.src.replace('github-light', `github-${theme}`).replace('github-dark', `github-${theme}`)
+    }
 }
 
 function rememberTheme(theme) {
