@@ -25,7 +25,7 @@ darkModeMediaQuery.addListener((event) => {
 
 document.addEventListener("DOMContentLoaded", function () {
     let node = document.querySelector('.preload-transitions');
-    node.classList.remove('preload-transitions');
+    node && node.classList.remove('preload-transitions');
 });
 
 function setTheme(theme) {
