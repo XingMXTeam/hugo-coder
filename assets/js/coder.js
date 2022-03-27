@@ -25,14 +25,16 @@ darkModeMediaQuery.addListener((event) => {
 
 document.addEventListener("DOMContentLoaded", function () {
     let node = document.querySelector('.preload-transitions');
-    node.classList.remove('preload-transitions');
+    node && node.classList.remove('preload-transitions');
 });
 
 function setTheme(theme) {
     body.classList.remove('colorscheme-auto');
     let inverse = theme === 'dark' ? 'light' : 'dark';
-    body.classList.remove('colorscheme-' + inverse);
-    body.classList.add('colorscheme-' + theme);
+    if(body) {
+        body.classList.remove('colorscheme-' + inverse);
+        body.classList.add('colorscheme-' + theme);
+    }
 
     const iframe = document.querySelector('.utterances-frame')
     if (iframe) {
